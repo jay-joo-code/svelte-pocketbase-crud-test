@@ -3,7 +3,6 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
-	import Textarea from './Textarea.svelte';
 
 	const PRIVATE_NAVS = [
 		{
@@ -51,23 +50,6 @@
 	const handleSubmit = () => {
 		if (state === 'signin') login();
 		else if (state === 'register') signUp();
-	};
-
-	// create post
-	const formData = new FormData();
-	let caption: string = '';
-
-	const handleCreatePost = async () => {
-		formData.append('caption', caption);
-		formData.append('user', $currentUser?.id as string);
-		await pb.collection('posts').create(formData);
-		caption = '';
-	};
-
-	const handleFileChange = (event: any) => {
-		for (let file of event?.target?.files) {
-			formData.append('photos', file);
-		}
 	};
 </script>
 
