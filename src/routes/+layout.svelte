@@ -59,11 +59,14 @@
 					</div>
 				</div>
 			</div>
-			<div class={`w-full max-w-4xl`}>
+			<div class="w-full max-w-4xl p-4 md:pl-6">
+				<!-- body content -->
 				<div class="min-h-[82vh]">
 					<slot />
 				</div>
-				<footer class="footer footer-center bg-base-100 p-4 py-8 text-base-content">
+
+				<!-- footer -->
+				<footer class="footer footer-center bg-base-100 py-8 text-base-content">
 					<div>
 						<p>{APP_NAME} © 2022</p>
 					</div>

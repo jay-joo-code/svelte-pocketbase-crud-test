@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { APP_NAME } from '$lib/config';
-	import IconAdd from '$lib/icons/IconAdd.svelte';
-	import IconLogout from '$lib/icons/IconLogout.svelte';
+	import IconAdd from '$lib/icons/glue/IconAdd.svelte';
+	import IconHome from '$lib/icons/glue/IconHome.svelte';
+	import IconLogout from '$lib/icons/glue/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
 
 	const PRIVATE_NAVS = [
@@ -9,6 +10,11 @@
 			label: 'Create listing',
 			path: '/new',
 			icon: IconAdd
+		},
+		{
+			label: 'My listings',
+			path: '/profile/listings',
+			icon: IconHome
 		}
 	];
 

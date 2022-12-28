@@ -10,13 +10,13 @@
 </svelte:head>
 {#if layout === 'mobile-only'}
 	<div class="flex justify-center">
-		<div class="w-full max-w-2xl p-4">
+		<div class="w-full max-w-2xl">
 			<slot />
 		</div>
 	</div>
 {:else if layout === 'aside-main'}
 	<!-- aside main layout: should only have 2 top level children -->
-	<div class="flex flex-col space-y-4 p-4 md:flex-row md:space-y-0 md:space-x-4 md:pl-6">
+	<div class="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-4">
 		<slot />
 	</div>
 {/if}

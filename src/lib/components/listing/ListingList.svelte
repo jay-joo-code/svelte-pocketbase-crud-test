@@ -12,7 +12,7 @@
 		});
 		listings = [...listings, ...result.items];
 	};
-
+	$: console.log('listings', listings);
 	onMount(fetchListings);
 </script>
 
