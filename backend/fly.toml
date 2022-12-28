@@ -1,6 +1,6 @@
-# fly.toml file generated for svelte-pocketbase-test on 2022-12-27T07:10:13+09:00
+# fly.toml file generated for svelte-pocketbase-crud-test on 2022-12-28T09:30:10+09:00
 
-app = "svelte-pocketbase-test"
+app = "svelte-pocketbase-crud-test"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
