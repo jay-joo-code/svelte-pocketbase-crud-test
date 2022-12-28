@@ -3,8 +3,15 @@
 	import IconAdd from '$lib/icons/IconAdd.svelte';
 	import IconLogout from '$lib/icons/IconLogout.svelte';
 	import { currentUser, pb } from '$lib/pocketbase';
-	import type { ChangeEventHandler } from 'svelte/elements';
 	import Textarea from './Textarea.svelte';
+
+	const PRIVATE_NAVS = [
+		{
+			label: 'Create listing',
+			path: '/new',
+			icon: IconAdd
+		}
+	];
 
 	let state: 'signin' | 'register' = 'register';
 
@@ -79,40 +86,16 @@
 			tabindex="0"
 			class="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-200 p-2 shadow"
 		>
-			<li>
-				<label tabindex="0" for="modal-create-post" class="flex items-center">
-					<IconAdd />Create post
-				</label>
-			</li>
+			{#each PRIVATE_NAVS as nav}
+				<li>
+					<a href={nav.path}>
+						<svelte:component this={nav.icon} />{nav.label}
+					</a>
+				</li>
+			{/each}
 			<li><button on:click={signOut}><IconLogout />Logout</button></li>
 		</ul>
 	</div>
-
-	<!-- create post modal -->
-	<input type="checkbox" id="modal-create-post" class="modal-toggle" />
-	<label for="modal-create-post" class="modal cursor-pointer">
-		<label class="modal-box relative w-11/12 max-w-sm" for="">
-			<form on:submit|preventDefault>
-				<div class="flex flex-col gap-3">
-					<h3 class="p-0 text-xl font-medium">Create post</h3>
-					<Textarea label="caption" name="caption" required bind:value={caption} />
-					<input
-						type="file"
-						class="file-input-bordered file-input w-full max-w-xs"
-						on:change={handleFileChange}
-						multiple
-					/>
-					<label
-						for="modal-create-post"
-						class="btn-primary btn-block btn"
-						on:click={handleCreatePost}
-					>
-						Create post
-					</label>
-				</div>
-			</form>
-		</label>
-	</label>
 {:else}
 	<button>
 		<label for="modal-auth" class="btn-primary btn">Get started</label>

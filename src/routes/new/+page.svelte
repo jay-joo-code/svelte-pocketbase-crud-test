@@ -2,6 +2,6 @@
 	import PageContainer from '$lib/components/glue/PageContainer.svelte';
 </script>
 
-<PageContainer title="Home">
-	<p>content</p>
+<PageContainer title="New listing">
+	<p>form</p>
 </PageContainer>

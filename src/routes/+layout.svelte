@@ -51,7 +51,9 @@
 				</div>
 			</div>
 			<div class={`w-full max-w-4xl`}>
-				<slot />
+				<div class="min-h-[82vh]">
+					<slot />
+				</div>
 				<footer class="footer footer-center bg-base-100 p-4 py-8 text-base-content">
 					<div>
 						<p>{APP_NAME} © 2022</p>
