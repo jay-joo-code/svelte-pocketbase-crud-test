@@ -3,14 +3,17 @@
 	import { pb } from '$lib/pocketbase';
 
 	let listings: any[] = [];
+	let page = 1;
 
-	onMount(async () => {
-		const result = await pb.collection('listings').getList(1, 50, {
+	const fetchListings = async () => {
+		const result = await pb.collection('listings').getList(page, 2, {
 			sort: 'created',
 			expand: 'user'
 		});
-		listings = result.items;
-	});
+		listings = [...listings, ...result.items];
+	};
+
+	onMount(fetchListings);
 </script>
 
 <div class="space-y-4">
@@ -33,4 +36,13 @@
 			</div>
 		</a>
 	{/each}
+	<div class="flex justify-center">
+		<button
+			class="btn"
+			on:click={() => {
+				page += 1;
+				fetchListings();
+			}}>Load more</button
+		>
+	</div>
 </div>
