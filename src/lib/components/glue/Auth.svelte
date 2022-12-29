@@ -49,7 +49,6 @@
 	}
 
 	function signOut() {
-		console.log('sign out');
 		pb.authStore.clear();
 	}
 
